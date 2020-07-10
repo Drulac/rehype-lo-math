@@ -30,12 +30,12 @@ And our script, `example.js`, looks as follows:
 const vfile = require('to-vfile')
 const unified = require('unified')
 const parse = require('rehype-parse')
-const mathjax = require('rehype-lo-math')
+const loMath = require('rehype-lo-math')
 const stringify = require('rehype-stringify')
 
 unified()
   .use(parse, {fragment: true})
-  .use(mathjax)
+  .use(loMath)
   .use(stringify)
   .process(vfile.readSync('example.html'), function (err, file) {
     if (err) throw err
