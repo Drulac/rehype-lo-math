@@ -25,7 +25,7 @@ const mathjaxProm = require('mathjax')
 		}
 	})
 
-module.exports = rehypeKatex
+module.exports = rehypeLoMath
 
 const parseHtml = unified().use(parse, {
 	fragment: true,
@@ -34,7 +34,7 @@ const parseHtml = unified().use(parse, {
 
 const source = 'rehype-LO-math'
 
-function rehypeKatex(options) {
+function rehypeLoMath(options) {
 	const opts = options || {}
 	const throwOnError = opts.throwOnError || false
 

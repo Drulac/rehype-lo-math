@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Drulac/rehype-lo-math#readme",
   "dependencies": {
     "hast-util-to-text": "^2.0.0",
+    "mathjax": "^3.0.5",
     "rehype-parse": "^7.0.1",
     "unified": "^9.0.0",
     "unist-util-visit": "^2.0.2"
