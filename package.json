@@ -1,6 +1,6 @@
 {
   "name": "rehype-lo-math",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Transforms math nodes with LibreOffice (writer) math syntax (simplier than AsciiMath)",
   "main": "index.js",
   "scripts": {
