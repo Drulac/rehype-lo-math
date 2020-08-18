@@ -59,13 +59,9 @@ function rehypeLoMath(options) {
 			let result
 
 			try {
-				console.log(value)
-				console.log(convertFormule(value))
 				result = `<span class="mathjax">${mathjax(
 					convertFormule(value)
 				)}</span>`
-
-				console.log(result)
 			} catch (error) {
 				const fn = throwOnError ? 'fail' : 'message'
 				const origin = [
