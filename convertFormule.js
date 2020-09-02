@@ -73,7 +73,9 @@ function parse(str, deep = 0) {
 		} else if (e === 'infinity' || e === 'infty') {
 			sum.push('ꚙ')
 			delete arr[id + 1]
-		} else if (['partial', 'abs', 'overline', 'bar'].includes(e)) {
+		} else if (
+			['partial', 'abs', 'overline', 'bar'].includes(e)
+		) {
 			sum.push('\\' + e + ' ')
 		} else {
 			sum.push(e)
@@ -91,13 +93,23 @@ function parse(str, deep = 0) {
 
 function convertToLatex(str) {
 	str = str
+		.replace(/\//g, '"/"') //TODO : faire fonctionner ça, pour ne pas à avoir à écrire "/"
 		.replace(/(right|left)/g, '')
 		.replace(/(widevec)/g, 'vec')
 		.replace(/\(/g, '&%28;')
 		.replace(/\)/g, '&%29;')
-		.replace(/("[^\"]+")/g, function replacer(match, p1, p2, p3, offset, string) {
+		.replace(/("[^\"]+")/g, function replacer(
+			match,
+			p1,
+			p2,
+			p3,
+			offset,
+			string
+		) {
 			// p1 is nondigits, p2 digits, and p3 non-alphanumerics
-			return p1.replace(/\t/, '    ').replace(/\s/g, '&nbsp;')
+			return p1
+				.replace(/\t/, '    ')
+				.replace(/\s/g, '&nbsp;')
 		})
 	//console.log('escaped : ' + JSON.stringify(str))
 	return parse(str)
@@ -108,7 +120,7 @@ function convertToLatex(str) {
 		.replace(/&nbsp;/g, ' ')
 		.replace(/²/g, '^2')
 		.replace(/–/g, '-')
-		.replace(/overline/g, '\\overline')
+		.replace(/overline/g, '\\overline') //TODO : check si peut être supprimé, semble être dupliqué avec la ligne 77,vers la fin de la fonction parse
 }
 
 module.exports = convertToLatex
