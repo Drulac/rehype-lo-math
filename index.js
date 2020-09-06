@@ -147,8 +147,6 @@ function rehypeLoMath(options) {
 	const opts = options || {}
 	const throwOnError = opts.throwOnError || false
 
-	console.log('imported rhm')
-
 	return transformMath
 
 	async function transformMath(tree, file) {
